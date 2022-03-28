@@ -4,5 +4,6 @@ namespace NoteIt.Application.Contracts.Repositories
 {
     public interface INoteRepository : IAsyncRepository<Note>
     {
+        Task<IReadOnlyList<Note>> GetAllAsyncByStorageId(Guid id);
     }
 }

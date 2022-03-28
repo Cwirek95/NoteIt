@@ -2,21 +2,21 @@
 
 namespace NoteIt.Domain.Entities
 {
-    public class Event : AuditableEntity, IEntity<Guid>
+    public class Event : AuditableEntity, IEntity<int>
     {
         public Event()
         {
-            isHidden = false;
+            IsHidden = false;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string? Location { get; set; }
         public string? Description { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
         public DateTimeOffset? ReminderDate { get; set; }
-        public bool isHidden { get; set; }
+        public bool IsHidden { get; set; }
 
 
         public Guid StorageId { get; set; }

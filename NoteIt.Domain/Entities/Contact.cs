@@ -2,18 +2,18 @@
 
 namespace NoteIt.Domain.Entities
 {
-    public class Contact : AuditableEntity, IEntity<Guid>
+    public class Contact : AuditableEntity, IEntity<int>
     {
         public Contact()
         {
-            isHidden = false;
+            IsHidden = false;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string? EmailAddress { get; set; }
         public string? PhoneNumber { get; set; }
-        public bool isHidden { get; set; }
+        public bool IsHidden { get; set; }
 
 
         public Guid StorageId { get; set; }

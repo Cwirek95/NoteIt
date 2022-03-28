@@ -2,18 +2,18 @@
 
 namespace NoteIt.Domain.Entities
 {
-    public class Note : AuditableEntity, IEntity<Guid>
-    {
+    public class Note : AuditableEntity, IEntity<int>
+        {
         public Note()
         {
-            isHidden = false;
+            IsHidden = false;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string? Content { get; set; }
-        public bool isImportant { get; set; }
-        public bool isHidden { get; set; }
+        public bool IsImportant { get; set; }
+        public bool IsHidden { get; set; }
 
 
         public Guid StorageId { get; set; }

@@ -4,8 +4,9 @@
     {
         Task<IReadOnlyList<TEntity>> GetAllAsync();
         Task<TEntity> GetByIdAsync(int id);
-        Task<TEntity> AddAsync(int id);
-        Task UpdateAsync(int id);
-        Task DeleteAsync(int id);
+        Task<TEntity> GetByIdAsync(Guid id);
+        Task<TEntity> AddAsync(TEntity entity);
+        Task UpdateAsync(TEntity entity);
+        Task DeleteAsync(TEntity entity);
     }
 }
