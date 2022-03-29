@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Api", "NoteIt.Api\NoteIt.Api.csproj", "{60B2C246-B2E7-40DC-A6D8-414CB11E0D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Api", "NoteIt.Api\NoteIt.Api.csproj", "{60B2C246-B2E7-40DC-A6D8-414CB11E0D1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Domain", "NoteIt.Domain\NoteIt.Domain.csproj", "{D750CB39-DBD0-4F65-964A-7AC316D61E43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Domain", "NoteIt.Domain\NoteIt.Domain.csproj", "{D750CB39-DBD0-4F65-964A-7AC316D61E43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Application", "NoteIt.Application\NoteIt.Application.csproj", "{3494703A-C0D0-4836-8EB9-7D5B67B62EFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Application", "NoteIt.Application\NoteIt.Application.csproj", "{3494703A-C0D0-4836-8EB9-7D5B67B62EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Application.Test", "NoteIt.Application.Test\NoteIt.Application.Test.csproj", "{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{3494703A-C0D0-4836-8EB9-7D5B67B62EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3494703A-C0D0-4836-8EB9-7D5B67B62EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3494703A-C0D0-4836-8EB9-7D5B67B62EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

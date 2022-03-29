@@ -20,8 +20,4 @@
     <ProjectReference Include="..\NoteIt.Domain\NoteIt.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\NewFolder\" />
-  </ItemGroup>
-
 </Project>
