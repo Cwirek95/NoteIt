@@ -23,7 +23,7 @@ namespace NoteIt.Application.Functions.Storages.Commands.CreateStorage
         {
             var existStorage = await _storageRepository.GetByNameAsync(request.Name);
             if (existStorage != null)
-                throw new NotFoundException("The Storage with this name is already exist");
+                throw new ConflictException("The Storage with this name is already exist");
 
             var storage = _mapper.Map<Storage>(request);
 

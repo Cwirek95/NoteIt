@@ -1,6 +1,4 @@
-﻿using AutoFixture;
-using AutoFixture.AutoMoq;
-using Moq;
+﻿using Moq;
 using NoteIt.Application.Contracts.Repositories;
 using NoteIt.Domain.Entities;
 using System;
@@ -47,13 +45,52 @@ namespace NoteIt.Application.Test.Mocks.Repositories
         private static List<Storage> GetStorages()
         {
             List<Storage> storages = new List<Storage>();
-            var fixture = new Fixture().Customize(new AutoMoqCustomization());
 
-            var storage1 = fixture.Create<Storage>();
-            var storage2 = fixture.Create<Storage>();
-            var storage3 = fixture.Create<Storage>();
-            var storage4 = fixture.Create<Storage>();
-            var storage5 = fixture.Create<Storage>();
+            var storage1 = new Storage()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Storage1",
+                Password = "Pass1",
+                AddressName = "storage1",
+                CreatedAt = DateTimeOffset.UtcNow.AddMinutes(-1),
+                LastModified = DateTimeOffset.UtcNow,
+            };
+            var storage2 = new Storage()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Storage2",
+                Password = "Pass2",
+                AddressName = "storage2",
+                CreatedAt = DateTimeOffset.UtcNow.AddMinutes(-1),
+                LastModified = DateTimeOffset.UtcNow,
+            };
+            var storage3 = new Storage()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Storage3",
+                Password = "Pass3",
+                AddressName = "storage3",
+                CreatedAt = DateTimeOffset.UtcNow.AddMinutes(-1),
+                LastModified = DateTimeOffset.UtcNow,
+            };
+            var storage4 = new Storage()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Storage4",
+                Password = "Pass4",
+                AddressName = "storage4",
+                CreatedAt = DateTimeOffset.UtcNow.AddMinutes(-1),
+                LastModified = DateTimeOffset.UtcNow,
+            };
+            var storage5 = new Storage()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Storage5",
+                Password = "Pass5",
+                AddressName = "storage5",
+                CreatedAt = DateTimeOffset.UtcNow.AddMinutes(-1),
+                LastModified = DateTimeOffset.UtcNow,
+            };
             storages.Add(storage1);
             storages.Add(storage2);
             storages.Add(storage3);

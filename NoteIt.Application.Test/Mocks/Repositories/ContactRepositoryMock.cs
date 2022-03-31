@@ -1,6 +1,4 @@
-﻿using AutoFixture;
-using AutoFixture.AutoMoq;
-using Moq;
+﻿using Moq;
 using NoteIt.Application.Contracts.Repositories;
 using NoteIt.Domain.Entities;
 using System;
@@ -53,13 +51,57 @@ namespace NoteIt.Application.Test.Mocks.Repositories
         private static List<Contact> GetContacts()
         {
             List<Contact> contacts = new List<Contact>();
-            var fixture = new Fixture().Customize(new AutoMoqCustomization());
 
-            var contact1 = fixture.Create<Contact>();
-            var contact2 = fixture.Create<Contact>();
-            var contact3 = fixture.Create<Contact>();
-            var contact4 = fixture.Create<Contact>();
-            var contact5 = fixture.Create<Contact>();
+            var contact1 = new Contact()
+            {
+                Id = 1,
+                Name = "Contact1",
+                EmailAddress = "contact1@email.com",
+                PhoneNumber = "+48123456789",
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now
+            };
+            var contact2 = new Contact()
+            {
+                Id = 2,
+                Name = "Contact2",
+                EmailAddress = "contact1@email.com",
+                PhoneNumber = "+48123456789",
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now
+            };
+            var contact3 = new Contact()
+            {
+                Id = 3,
+                Name = "Contact3",
+                EmailAddress = "contact1@email.com",
+                PhoneNumber = "+48123456789",
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now
+            };
+            var contact4 = new Contact()
+            {
+                Id = 4,
+                Name = "Contact4",
+                EmailAddress = "contact1@email.com",
+                PhoneNumber = "+48123456789",
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now
+            };
+            var contact5 = new Contact()
+            {
+                Id = 5,
+                Name = "Contact5",
+                EmailAddress = "contact1@email.com",
+                PhoneNumber = "+48123456789",
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now
+            };
 
             contacts.Add(contact1);
             contacts.Add(contact2);

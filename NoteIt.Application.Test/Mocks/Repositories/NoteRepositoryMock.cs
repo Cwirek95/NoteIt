@@ -1,6 +1,4 @@
-﻿using AutoFixture;
-using AutoFixture.AutoMoq;
-using Moq;
+﻿using Moq;
 using NoteIt.Application.Contracts.Repositories;
 using NoteIt.Domain.Entities;
 using System;
@@ -53,14 +51,57 @@ namespace NoteIt.Application.Test.Mocks.Repositories
         private static List<Note> GetNotes()
         {
             List<Note> notes = new List<Note>();
-            var fixture = new Fixture().Customize(new AutoMoqCustomization());
 
-            var note1 = fixture.Create<Note>();
-            var note2 = fixture.Create<Note>();
-            var note3 = fixture.Create<Note>();
-            var note4 = fixture.Create<Note>();
-            var note5 = fixture.Create<Note>();
-
+            var note1 = new Note()
+            {
+                Id = 1,
+                Name = "Note1",
+                Content = "NoteContent1",
+                IsHidden = false,
+                IsImportant = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now,
+            };
+            var note2 = new Note()
+            {
+                Id = 2,
+                Name = "Note2",
+                Content = "NoteContent2",
+                IsHidden = false,
+                IsImportant = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now,
+            };
+            var note3 = new Note()
+            {
+                Id = 3,
+                Name = "Note3",
+                Content = "NoteContent3",
+                IsHidden = false,
+                IsImportant = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now,
+            };
+            var note4 = new Note()
+            {
+                Id = 4,
+                Name = "Note4",
+                Content = "NoteContent4",
+                IsHidden = false,
+                IsImportant = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now,
+            };
+            var note5 = new Note()
+            {
+                Id = 5,
+                Name = "Note5",
+                Content = "NoteContent5",
+                IsHidden = false,
+                IsImportant = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-1),
+                LastModified = DateTimeOffset.Now,
+            };
             notes.Add(note1);
             notes.Add(note2);
             notes.Add(note3);

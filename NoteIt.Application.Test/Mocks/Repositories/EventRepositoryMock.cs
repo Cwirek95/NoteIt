@@ -1,6 +1,4 @@
-﻿using AutoFixture;
-using AutoFixture.AutoMoq;
-using Moq;
+﻿using Moq;
 using NoteIt.Application.Contracts.Repositories;
 using NoteIt.Domain.Entities;
 using System;
@@ -53,13 +51,72 @@ namespace NoteIt.Application.Test.Mocks.Repositories
         private static List<Event> GetEvents()
         {
             List<Event> events = new List<Event>();
-            var fixture = new Fixture().Customize(new AutoMoqCustomization());
 
-            var event1 = fixture.Create<Event>();
-            var event2 = fixture.Create<Event>();
-            var event3 = fixture.Create<Event>();
-            var event4 = fixture.Create<Event>();
-            var event5 = fixture.Create<Event>();
+            var event1 = new Event()
+            {
+                Id = 1,
+                Name = "Event1",
+                Location = "Location1",
+                Description = "Desc1",
+                StartDate = DateTimeOffset.Now.AddMinutes(-5),
+                EndDate = DateTimeOffset.Now.AddMinutes(5),
+                ReminderDate = DateTimeOffset.Now.AddMinutes(-8),
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-10),
+                LastModified = DateTimeOffset.Now
+            };
+            var event2 = new Event()
+            {
+                Id = 2,
+                Name = "Event2",
+                Location = "Location2",
+                Description = "Desc2",
+                StartDate = DateTimeOffset.Now.AddMinutes(-5),
+                EndDate = DateTimeOffset.Now.AddMinutes(5),
+                ReminderDate = DateTimeOffset.Now.AddMinutes(-8),
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-10),
+                LastModified = DateTimeOffset.Now
+            };
+            var event3 = new Event()
+            {
+                Id = 3,
+                Name = "Event3",
+                Location = "Location3",
+                Description = "Desc3",
+                StartDate = DateTimeOffset.Now.AddMinutes(-5),
+                EndDate = DateTimeOffset.Now.AddMinutes(5),
+                ReminderDate = DateTimeOffset.Now.AddMinutes(-8),
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-10),
+                LastModified = DateTimeOffset.Now
+            };
+            var event4 = new Event()
+            {
+                Id = 4,
+                Name = "Event4",
+                Location = "Location4",
+                Description = "Desc4",
+                StartDate = DateTimeOffset.Now.AddMinutes(-5),
+                EndDate = DateTimeOffset.Now.AddMinutes(5),
+                ReminderDate = DateTimeOffset.Now.AddMinutes(-8),
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-10),
+                LastModified = DateTimeOffset.Now
+            };
+            var event5 = new Event()
+            {
+                Id = 5,
+                Name = "Event5",
+                Location = "Location5",
+                Description = "Desc5",
+                StartDate = DateTimeOffset.Now.AddMinutes(-5),
+                EndDate = DateTimeOffset.Now.AddMinutes(5),
+                ReminderDate = DateTimeOffset.Now.AddMinutes(-8),
+                IsHidden = false,
+                CreatedAt = DateTimeOffset.Now.AddMinutes(-10),
+                LastModified = DateTimeOffset.Now
+            };
 
             events.Add(event1);
             events.Add(event2);

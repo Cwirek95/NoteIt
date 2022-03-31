@@ -22,4 +22,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NoteIt.Application\NoteIt.Application.csproj" />
+    <ProjectReference Include="..\NoteIt.Domain\NoteIt.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@
         {
             string[] groups = data.Split(new[] { '-', ' ' }, StringSplitOptions.RemoveEmptyEntries);
             string connected = String.Join("-", groups);
-            return connected;
+            return connected.ToLower();
         }
     }
 }
