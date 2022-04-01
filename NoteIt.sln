@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Domain", "NoteIt.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Application", "NoteIt.Application\NoteIt.Application.csproj", "{3494703A-C0D0-4836-8EB9-7D5B67B62EFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Application.Test", "NoteIt.Application.Test\NoteIt.Application.Test.csproj", "{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Application.Test", "NoteIt.Application.Test\NoteIt.Application.Test.csproj", "{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Persistence.EF", "NoteIt.Persistance.EF\NoteIt.Persistence.EF.csproj", "{69EEF539-E925-4FE8-BC8A-B0C66743594A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
