@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NoteIt.Domain.Entities;
 using NoteIt.Domain.Entities.Common;
+using NoteIt.Persistence.EF.Configurations.Repositories;
 
 namespace NoteIt.Persistence.EF
 {
@@ -33,6 +34,13 @@ namespace NoteIt.Persistence.EF
             var result = await base.SaveChangesAsync(cancellationToken);
 
             return result;
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(IRepositoryConfiguration<>).Assembly);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
