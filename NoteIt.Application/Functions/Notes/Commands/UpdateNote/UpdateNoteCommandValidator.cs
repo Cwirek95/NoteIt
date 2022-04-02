@@ -16,11 +16,6 @@ namespace NoteIt.Application.Functions.Notes.Commands.UpdateNote
             RuleFor(x => x.Content)
                 .MaximumLength(8000)
                 .WithMessage("{PropertyName} must not exceed 8000 characters");
-
-            RuleFor(x => x.IsImportant)
-                .NotNull()
-                .NotEmpty()
-                .WithMessage("{PropertyName} is required");
         }
     }
 }
