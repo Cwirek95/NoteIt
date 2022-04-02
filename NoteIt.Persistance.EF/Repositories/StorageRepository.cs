@@ -18,8 +18,6 @@ namespace NoteIt.Persistence.EF.Repositories
                 .Include(x => x.Events)
                 .Include(x => x.Contacts)
                 .SingleOrDefaultAsync(x => x.Name == name);
-            if (storage == null)
-                throw new NotFoundException("The Storage with this name was not found");
             
             return storage;
         }
