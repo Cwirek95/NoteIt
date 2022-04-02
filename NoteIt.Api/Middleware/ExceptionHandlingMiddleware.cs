@@ -35,6 +35,7 @@ namespace NoteIt.Api.Middleware
             exception switch
             {
                 NotFoundException => StatusCodes.Status404NotFound,
+                ConflictException => StatusCodes.Status409Conflict,
                 AppValidationException => StatusCodes.Status422UnprocessableEntity,
                 _ => StatusCodes.Status500InternalServerError
             };

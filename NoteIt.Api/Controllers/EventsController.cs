@@ -74,10 +74,11 @@ namespace NoteIt.Api.Controllers
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [HttpDelete]
-        public async Task<ActionResult> Delete([FromBody] DeleteEventCommand command)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
         {
-            await _mediator.Send(command);
+            var deleteCommand = new DeleteEventCommand() { Id = id };
+            await _mediator.Send(deleteCommand);
 
             return NoContent();
         }

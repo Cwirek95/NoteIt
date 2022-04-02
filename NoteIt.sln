@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Application", "NoteI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Application.Test", "NoteIt.Application.Test\NoteIt.Application.Test.csproj", "{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Persistence.EF", "NoteIt.Persistance.EF\NoteIt.Persistence.EF.csproj", "{69EEF539-E925-4FE8-BC8A-B0C66743594A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Persistence.EF", "NoteIt.Persistance.EF\NoteIt.Persistence.EF.csproj", "{69EEF539-E925-4FE8-BC8A-B0C66743594A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Api.Test", "NoteIt.Api.Test\NoteIt.Api.Test.csproj", "{5BE1432B-DE40-4BD3-BDD8-3AF671186B72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69EEF539-E925-4FE8-BC8A-B0C66743594A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE1432B-DE40-4BD3-BDD8-3AF671186B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE1432B-DE40-4BD3-BDD8-3AF671186B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE1432B-DE40-4BD3-BDD8-3AF671186B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE1432B-DE40-4BD3-BDD8-3AF671186B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
