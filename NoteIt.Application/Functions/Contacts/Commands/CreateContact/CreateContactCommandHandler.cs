@@ -25,7 +25,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact
 
             var storage = await _storageRepository.GetByAddressAsync(request.StorageAddress);
 
-            contact.Id = contact.Id;
+            contact.StorageId = storage.Id;
 
             contact = await _contactRepository.AddAsync(contact);
 

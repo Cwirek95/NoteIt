@@ -15,9 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Persistence.EF", "No
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Api.Test", "NoteIt.Api.Test\NoteIt.Api.Test.csproj", "{5BE1432B-DE40-4BD3-BDD8-3AF671186B72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Application.Security", "NoteIt.Application.Security\NoteIt.Application.Security.csproj", "{17920E77-913B-4D4C-9F3C-6F6CB6B81AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Application.Security", "NoteIt.Application.Security\NoteIt.Application.Security.csproj", "{17920E77-913B-4D4C-9F3C-6F6CB6B81AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteIt.Infrastructure.Security", "NoteIt.Infrastructure.Security\NoteIt.Infrastructure.Security.csproj", "{607FB1CA-7075-406F-A3AE-45EE72B897B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteIt.Infrastructure.Security", "NoteIt.Infrastructure.Security\NoteIt.Infrastructure.Security.csproj", "{607FB1CA-7075-406F-A3AE-45EE72B897B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EED601E0-FC08-4725-8790-034837C9FFE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0C6D0541-AD13-4413-9F82-5585F10794D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +64,16 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{60B2C246-B2E7-40DC-A6D8-414CB11E0D1B} = {EED601E0-FC08-4725-8790-034837C9FFE4}
+		{D750CB39-DBD0-4F65-964A-7AC316D61E43} = {EED601E0-FC08-4725-8790-034837C9FFE4}
+		{3494703A-C0D0-4836-8EB9-7D5B67B62EFA} = {EED601E0-FC08-4725-8790-034837C9FFE4}
+		{2C9E3E17-6CA9-46C9-ADF0-D01316A0B0AD} = {0C6D0541-AD13-4413-9F82-5585F10794D7}
+		{69EEF539-E925-4FE8-BC8A-B0C66743594A} = {EED601E0-FC08-4725-8790-034837C9FFE4}
+		{5BE1432B-DE40-4BD3-BDD8-3AF671186B72} = {0C6D0541-AD13-4413-9F82-5585F10794D7}
+		{17920E77-913B-4D4C-9F3C-6F6CB6B81AC1} = {EED601E0-FC08-4725-8790-034837C9FFE4}
+		{607FB1CA-7075-406F-A3AE-45EE72B897B8} = {EED601E0-FC08-4725-8790-034837C9FFE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A87C1A2-E4E4-407D-9496-7ABED2450C8D}

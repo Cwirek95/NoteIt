@@ -30,7 +30,7 @@ namespace NoteIt.Api.Controllers
         [HttpGet("{address}/[controller]", Name = "GetAllNotes")]
         public async Task<ActionResult<NotesInListByStorageViewModel>> GetAllByStorage(string address)
         {
-            var getNotesByStorageId = new GetNoteListByStorageQuery()
+            var getNotesByStorageId = new GetNotesListByStorageQuery()
             { 
                 StorageAddress = address
             };
