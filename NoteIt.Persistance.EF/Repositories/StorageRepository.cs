@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NoteIt.Application.Contracts.Repositories;
-using NoteIt.Application.Exceptions;
 using NoteIt.Domain.Entities;
 
 namespace NoteIt.Persistence.EF.Repositories
@@ -17,7 +16,18 @@ namespace NoteIt.Persistence.EF.Repositories
                 .Include(x => x.Notes)
                 .Include(x => x.Events)
                 .Include(x => x.Contacts)
-                .SingleOrDefaultAsync(x => x.Name == name);
+                .FirstOrDefaultAsync(x => x.Name == name);
+            
+            return storage;
+        }
+
+        public async Task<Storage> GetByAddressAsync(string address)
+        {
+            var storage = await _context.Storages
+                .Include(x => x.Notes)
+                .Include(x => x.Events)
+                .Include(x => x.Contacts)
+                .FirstOrDefaultAsync(x => x.AddressName == address);
             
             return storage;
         }

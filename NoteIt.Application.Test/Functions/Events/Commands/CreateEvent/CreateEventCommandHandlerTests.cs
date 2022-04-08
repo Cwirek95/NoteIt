@@ -14,6 +14,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
     public class CreateEventCommandHandlerTests
     {
         private Mock<IEventRepository> _eventRepositoryMock;
+        private Mock<IStorageRepository> _storageRepositoryMock;
         private IMapper _mapper;
 
         public CreateEventCommandHandlerTests()
@@ -24,6 +25,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
             });
 
             _eventRepositoryMock = EventRepositoryMock.GetEventRepository();
+            _storageRepositoryMock = StorageRepositoryMock.GetStorageRepository();
             _mapper = configurationProvider.CreateMapper();
         }
 
@@ -31,7 +33,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
         public async Task Handle_ForValidCommand_ReturnSuccessResponse()
         {
             // Arrange
-            var handler = new CreateEventCommandHandler(_eventRepositoryMock.Object, _mapper);
+            var handler = new CreateEventCommandHandler(_eventRepositoryMock.Object, _mapper, _storageRepositoryMock.Object);
             var command = new CreateEventCommand()
             {
                 Id = 100,
@@ -41,7 +43,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -55,7 +57,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
         public async Task Handle_CreateEvent_ReturnNewEventId()
         {
             // Arrange
-            var handler = new CreateEventCommandHandler(_eventRepositoryMock.Object, _mapper);
+            var handler = new CreateEventCommandHandler(_eventRepositoryMock.Object, _mapper, _storageRepositoryMock.Object);
             var command = new CreateEventCommand()
             {
                 Id = 100,
@@ -65,7 +67,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -79,7 +81,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
         public async Task Handle_CreateEvent_ReturnOneMoreEvents()
         {
             // Arrange
-            var handler = new CreateEventCommandHandler(_eventRepositoryMock.Object, _mapper);
+            var handler = new CreateEventCommandHandler(_eventRepositoryMock.Object, _mapper, _storageRepositoryMock.Object);
             var countBefore = (await _eventRepositoryMock.Object.GetAllAsync()).Count;
             var command = new CreateEventCommand()
             {
@@ -90,7 +92,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act

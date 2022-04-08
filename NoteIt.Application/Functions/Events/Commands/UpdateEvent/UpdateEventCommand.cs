@@ -12,5 +12,8 @@ namespace NoteIt.Application.Functions.Events.Commands.UpdateEvent
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
         public DateTimeOffset? ReminderDate { get; set; }
+
+
+        public string StorageAddress { get; set; }
     }
 }

@@ -9,5 +9,8 @@ namespace NoteIt.Application.Functions.Contacts.Commands.UpdateContact
         public string Name { get; set; }
         public string? EmailAddress { get; set; }
         public string? PhoneNumber { get; set; }
+
+
+        public string StorageAddress { get; set; }
     }
 }

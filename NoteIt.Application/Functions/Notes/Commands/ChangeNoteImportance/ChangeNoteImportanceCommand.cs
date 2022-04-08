@@ -6,5 +6,6 @@ namespace NoteIt.Application.Functions.Notes.Commands.ChangeNoteImportance
     public class ChangeNoteImportanceCommand : IRequest<ICommandResponse>
     {
         public int Id { get; set; }
+        public string StorageAddress { get; set; }
     }
 }

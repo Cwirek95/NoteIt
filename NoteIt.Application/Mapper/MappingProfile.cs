@@ -22,19 +22,25 @@ namespace NoteIt.Application.Mapper
             #endregion
 
             #region Note
-            CreateMap<Note, CreateNoteCommand>().ReverseMap();
+            CreateMap<CreateNoteCommand, Note>();
+            CreateMap<Note, CreateNoteCommand>()
+                .ForMember(x => x.StorageAddress, opt => opt.Ignore());
             CreateMap<Note, NotesInListByStorageViewModel>().ReverseMap();
             CreateMap<Note, NoteDetailViewModel>().ReverseMap();
             #endregion
 
             #region Event
-            CreateMap<Event, CreateEventCommand>().ReverseMap();
+            CreateMap<CreateEventCommand, Event>();
+            CreateMap<Event, CreateEventCommand>().
+                ForMember(x => x.StorageAddress, opt => opt.Ignore());
             CreateMap<Event, EventsInListByStorageViewModel>().ReverseMap();
             CreateMap<Event, EventDetailViewModel>().ReverseMap();
             #endregion
 
             #region Contact
-            CreateMap<Contact, CreateContactCommand>().ReverseMap();
+            CreateMap<CreateContactCommand, Contact>();
+            CreateMap<Contact, CreateContactCommand>()
+                .ForMember(x => x.StorageAddress, opt => opt.Ignore());
             CreateMap<Contact, ContactsInListByStorageViewModel>().ReverseMap();
             CreateMap<Contact, ContactDetailViewModel>().ReverseMap();
             #endregion

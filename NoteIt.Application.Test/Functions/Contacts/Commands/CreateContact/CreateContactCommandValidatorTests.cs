@@ -17,7 +17,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = "",
                 EmailAddress = "Email100@email.com",
                 PhoneNumber = "+48987654321",
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
             // Act
             var response = validator.Validate(command);
@@ -37,7 +37,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = new string('A', 257),
                 EmailAddress = "Email100@email.com",
                 PhoneNumber = "+48987654321",
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -60,7 +60,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = "Name100",
                 EmailAddress = email,
                 PhoneNumber = "+48987654321",
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -81,7 +81,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = "Name100",
                 EmailAddress = new string('A', 119) + "@email.com",
                 PhoneNumber = "+48987654321",
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -102,7 +102,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = "Name100",
                 EmailAddress = "Email100@email.com",
                 PhoneNumber = new string('A', 8),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -123,7 +123,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = "Name100",
                 EmailAddress = "Email100@email.com",
                 PhoneNumber = new string('A', 16),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -134,7 +134,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
         }
 
         [Fact()]
-        public void Validate_ForEmptyStorageIdReturnInvalidValidation()
+        public void Validate_ForEmptyStorageAddressReturnInvalidValidation()
         {
             // Arrange
             var validator = new CreateContactCommandValidator();
@@ -144,7 +144,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact.Tests
                 Name = "Name100",
                 EmailAddress = "Email100@email.com",
                 PhoneNumber = "+48123456789",
-                StorageId = Guid.Empty
+                StorageAddress = ""
             };
 
             // Act

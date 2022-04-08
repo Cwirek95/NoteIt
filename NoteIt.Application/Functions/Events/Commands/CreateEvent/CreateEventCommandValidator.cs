@@ -35,7 +35,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent
                 .GreaterThanOrEqualTo(x => x.StartDate)
                 .WithMessage("End date must be later than start date");
 
-            RuleFor(x => x.StorageId)
+            RuleFor(x => x.StorageAddress)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("{PropertyName} must belong to some Storage");

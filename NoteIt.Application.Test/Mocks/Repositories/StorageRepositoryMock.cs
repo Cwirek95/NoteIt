@@ -21,6 +21,18 @@ namespace NoteIt.Application.Test.Mocks.Repositories
                     var storage = storages.FirstOrDefault(x => x.Id == id);
                     return storage;
                 });
+            mockStorageRepository.Setup(x => x.GetByNameAsync(It.IsAny<string>())).ReturnsAsync(
+                (string name) =>
+                {
+                    var storage = storages.FirstOrDefault(x => x.Name == name);
+                    return storage;
+                });
+            mockStorageRepository.Setup(x => x.GetByAddressAsync(It.IsAny<string>())).ReturnsAsync(
+                (string address) =>
+                {
+                    var storage = storages.FirstOrDefault(x => x.AddressName == address);
+                    return storage;
+                });
             mockStorageRepository.Setup(x => x.AddAsync(It.IsAny<Storage>())).ReturnsAsync(
                 (Storage storage) =>
                 {

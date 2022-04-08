@@ -1,4 +1,6 @@
-﻿namespace NoteIt.Application.Exceptions
+﻿using NoteIt.Domain.Exceptions;
+
+namespace NoteIt.Application.Exceptions
 {
     public class ConflictException : AppException
     {

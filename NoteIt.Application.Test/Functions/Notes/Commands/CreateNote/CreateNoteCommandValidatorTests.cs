@@ -17,7 +17,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
                 Name = "",
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -38,7 +38,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
                 Name = new string('A', 257),
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -59,7 +59,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
                 Name = new string('A', 8001),
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -70,7 +70,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
         }
 
         [Fact]
-        public void Validate_ForEmptyStorageIdReturnInvalidValidation()
+        public void Validate_ForEmptyStorageAddressReturnInvalidValidation()
         {
             // Arrange
             var validator = new CreateNoteCommandValidator();
@@ -80,7 +80,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
                 Name = "Name100",
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.Empty
+                StorageAddress = ""
             };
 
             // Act

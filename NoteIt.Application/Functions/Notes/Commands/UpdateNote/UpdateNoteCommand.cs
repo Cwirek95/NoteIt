@@ -9,5 +9,8 @@ namespace NoteIt.Application.Functions.Notes.Commands.UpdateNote
         public string Name { get; set; }
         public string? Content { get; set; }
         public bool IsImportant { get; set; }
+
+
+        public string StorageAddress { get; set; }
     }
 }

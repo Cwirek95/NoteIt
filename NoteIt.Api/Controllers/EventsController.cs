@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NoteIt.Application.Functions.Events.Commands.ChangeEventVisibility;
 using NoteIt.Application.Functions.Events.Commands.CreateEvent;
@@ -9,8 +10,9 @@ using NoteIt.Application.Functions.Events.Queries.GetEventsListByStorage;
 
 namespace NoteIt.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
+    [Authorize]
     public class EventsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -22,10 +24,13 @@ namespace NoteIt.Api.Controllers
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpGet("all/{storageId}", Name = "GetAllEvents")]
-        public async Task<ActionResult<EventsInListByStorageViewModel>> GetAllByStorageId(Guid storageId)
+        [HttpGet("{address}/[controller]", Name = "GetAllEvents")]
+        public async Task<ActionResult<EventsInListByStorageViewModel>> GetAllByStorage(string address)
         {
-            var getEventsByStorageId = new GetEventsListByStorageQuery() { StorageId = storageId };
+            var getEventsByStorageId = new GetEventsListByStorageQuery()
+            { 
+                StorageAddress = address
+            };
             var response = await _mediator.Send(getEventsByStorageId);
 
             return Ok(response);
@@ -33,10 +38,14 @@ namespace NoteIt.Api.Controllers
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<EventDetailViewModel>> Detail(int id)
+        [HttpGet("{address}/[controller]/{id}")]
+        public async Task<ActionResult<EventDetailViewModel>> Detail(int id, string address)
         {
-            var getEventDetail = new GetEventDetailQuery() { Id = id };
+            var getEventDetail = new GetEventDetailQuery() 
+            { 
+                Id = id, 
+                StorageAddress = address
+            };
             var response = await _mediator.Send(getEventDetail);
 
             return Ok(response);
@@ -44,40 +53,71 @@ namespace NoteIt.Api.Controllers
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [HttpPost]
-        public async Task<ActionResult<int>> Create([FromBody] CreateEventCommand command)
+        [HttpPost("{address}/[controller]")]
+        public async Task<ActionResult<int>> Create(string address, [FromBody] CreateEventCommand command)
         {
-            var response = await _mediator.Send(command);
+            var createEventCommand = new CreateEventCommand()
+            {
+                Id = command.Id,
+                Name = command.Name,
+                Location = command.Location,
+                Description = command.Description,
+                StartDate = command.StartDate,
+                EndDate = command.EndDate,
+                ReminderDate = command.ReminderDate,
+                StorageAddress = address
+            };
+            var response = await _mediator.Send(createEventCommand);
 
             return Ok(response);
         }
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [HttpPut]
-        public async Task<ActionResult> Update([FromBody] UpdateEventCommand command)
+        [HttpPut("{address}/[controller]/{id}")]
+        public async Task<ActionResult> Update(int id, string address, [FromBody] UpdateEventCommand command)
         {
-            await _mediator.Send(command);
+            var updateEventCommand = new UpdateEventCommand()
+            {
+                Id = id,
+                Name = command.Name,
+                Location = command.Location,
+                Description = command.Description,
+                StartDate = command.StartDate,
+                EndDate = command.EndDate,
+                ReminderDate = command.ReminderDate,
+                StorageAddress = address
+            };
+            await _mediator.Send(updateEventCommand);
 
             return NoContent();
         }
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [HttpPut("visibility", Name = "ChangeEventVisibility")]
-        public async Task<ActionResult> UpdateVisibility([FromBody] ChangeEventVisibilityCommand command)
+        [HttpPut("{address}/[controller]/{id}/visibility", Name = "ChangeEventVisibility")]
+        public async Task<ActionResult> UpdateVisibility(int id, string address)
         {
-            await _mediator.Send(command);
+            var changeEventVisibilityCommand = new ChangeEventVisibilityCommand()
+            {
+                Id = id,
+                StorageAddress = address
+            };
+            await _mediator.Send(changeEventVisibilityCommand);
 
             return NoContent();
         }
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        [HttpDelete("{address}/[controller]/{id}")]
+        public async Task<ActionResult> Delete(int id, string address)
         {
-            var deleteCommand = new DeleteEventCommand() { Id = id };
+            var deleteCommand = new DeleteEventCommand()
+            {
+                Id = id,
+                StorageAddress = address
+            };
             await _mediator.Send(deleteCommand);
 
             return NoContent();

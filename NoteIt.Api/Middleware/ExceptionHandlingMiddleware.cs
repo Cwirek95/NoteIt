@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using NoteIt.Application.Exceptions;
+using NoteIt.Application.Security.Exceptions;
+using NoteIt.Domain.Exceptions;
 
 namespace NoteIt.Api.Middleware
 {
@@ -34,6 +36,9 @@ namespace NoteIt.Api.Middleware
         private static int GetStatusCode(Exception exception) =>
             exception switch
             {
+                BadRequestException => StatusCodes.Status400BadRequest,
+                UnauthorizedException => StatusCodes.Status401Unauthorized,
+                ForbiddenException => StatusCodes.Status403Forbidden,
                 NotFoundException => StatusCodes.Status404NotFound,
                 ConflictException => StatusCodes.Status409Conflict,
                 AppValidationException => StatusCodes.Status422UnprocessableEntity,

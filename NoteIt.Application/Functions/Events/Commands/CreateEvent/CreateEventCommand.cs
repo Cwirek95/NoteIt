@@ -14,6 +14,6 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent
         public DateTimeOffset? ReminderDate { get; set; }
 
 
-        public Guid StorageId { get; set; }
+        public string StorageAddress { get; set; }
     }
 }

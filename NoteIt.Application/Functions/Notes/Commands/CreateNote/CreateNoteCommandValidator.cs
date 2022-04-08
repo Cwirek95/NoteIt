@@ -17,7 +17,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote
                 .MaximumLength(8000)
                 .WithMessage("{PropertyName} must not exceed 8000 characters");
 
-            RuleFor(x => x.StorageId)
+            RuleFor(x => x.StorageAddress)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("{PropertyName} must belong to some Storage");

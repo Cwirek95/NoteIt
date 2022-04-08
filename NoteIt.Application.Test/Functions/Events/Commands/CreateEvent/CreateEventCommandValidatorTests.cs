@@ -20,7 +20,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
             // Act
             var response = validator.Validate(command);
@@ -43,7 +43,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -67,7 +67,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -91,7 +91,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-30),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -114,7 +114,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 Description = "Desc100",
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
             // Act
             var response = validator.Validate(command);
@@ -137,7 +137,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(-60),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
             // Act
             var response = validator.Validate(command);
@@ -159,7 +159,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 Description = "Desc100",
                 StartDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
             // Act
             var response = validator.Validate(command);
@@ -182,7 +182,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(60),
                 EndDate = DateTimeOffset.Now.AddMinutes(10),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
             // Act
             var response = validator.Validate(command);
@@ -192,7 +192,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
         }
 
         [Fact]
-        public void Validate_ForEmptyStorageIdReturnInvalidValidation()
+        public void Validate_ForEmptyStorageAddressReturnInvalidValidation()
         {
             // Arrange
             var validator = new CreateEventCommandValidator();
@@ -205,7 +205,7 @@ namespace NoteIt.Application.Functions.Events.Commands.CreateEvent.Tests
                 StartDate = DateTimeOffset.Now.AddMinutes(10),
                 EndDate = DateTimeOffset.Now.AddMinutes(30),
                 ReminderDate = DateTimeOffset.Now.AddMinutes(-55),
-                StorageId = Guid.Empty
+                StorageAddress = ""
             };
             // Act
             var response = validator.Validate(command);

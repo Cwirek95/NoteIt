@@ -17,11 +17,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NoteIt.Application\NoteIt.Application.csproj" />
+    <ProjectReference Include="..\NoteIt.Infrastructure.Security\NoteIt.Infrastructure.Security.csproj" />
     <ProjectReference Include="..\NoteIt.Persistance.EF\NoteIt.Persistence.EF.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-	<InternalsVisibleTo Include ="..\NoteIt.Api.Test"/>
+	<InternalsVisibleTo Include="..\NoteIt.Api.Test" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,6 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote
         public bool IsImportant { get; set; }
 
 
-        public Guid StorageId { get; set; }
+        public string StorageAddress { get; set; }
     }
 }

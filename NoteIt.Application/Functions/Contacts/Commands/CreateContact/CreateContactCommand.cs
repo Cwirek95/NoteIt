@@ -11,6 +11,6 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact
         public string? PhoneNumber { get; set; }
 
 
-        public Guid StorageId { get; set; }
+        public string StorageAddress { get; set; }
     }
 }

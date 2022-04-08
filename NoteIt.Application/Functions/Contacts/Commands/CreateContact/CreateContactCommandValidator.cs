@@ -25,7 +25,7 @@ namespace NoteIt.Application.Functions.Contacts.Commands.CreateContact
                 .MaximumLength(15)
                 .WithMessage("{PropertyName} must not exceed 15 characters");
 
-            RuleFor(x => x.StorageId)
+            RuleFor(x => x.StorageAddress)
                 .NotNull()
                 .NotEmpty()
                 .WithMessage("{PropertyName} must belong to some Storage");

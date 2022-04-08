@@ -7,13 +7,13 @@ using NoteIt.Application.Mapper;
 using NoteIt.Application.Test.Mocks.Repositories;
 using System.Threading;
 using FluentAssertions;
-using System;
 
 namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
 {
     public class CreateNoteCommandHandlerTests
     {
         private Mock<INoteRepository> _noteRepositoryMock;
+        private Mock<IStorageRepository> _storageRepositoryMock;
         private IMapper _mapper;
 
         public CreateNoteCommandHandlerTests()
@@ -24,6 +24,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
             });
 
             _noteRepositoryMock = NoteRepositoryMock.GetNoteRepository();
+            _storageRepositoryMock = StorageRepositoryMock.GetStorageRepository();
             _mapper = configurationProvider.CreateMapper();
         }
 
@@ -31,14 +32,14 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
         public async Task Handle_ForValidCommand_ReturnSuccessResponse()
         {
             // Arrange
-            var handler = new CreateNoteCommandHandler(_noteRepositoryMock.Object, _mapper);
+            var handler = new CreateNoteCommandHandler(_noteRepositoryMock.Object, _mapper, _storageRepositoryMock.Object);
             var command = new CreateNoteCommand()
             {
                 Id = 100,
                 Name = "Note100",
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -52,14 +53,14 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
         public async Task Handle_CreateNote_ReturnNewNoteId()
         {
             // Arrange
-            var handler = new CreateNoteCommandHandler(_noteRepositoryMock.Object, _mapper);
+            var handler = new CreateNoteCommandHandler(_noteRepositoryMock.Object, _mapper, _storageRepositoryMock.Object);
             var command = new CreateNoteCommand()
             {
                 Id = 100,
                 Name = "Note100",
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
@@ -73,7 +74,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
         public async Task Handle_CreateNote_ReturnOneMoreNotes()
         {
             // Arrange
-            var handler = new CreateNoteCommandHandler(_noteRepositoryMock.Object, _mapper);
+            var handler = new CreateNoteCommandHandler(_noteRepositoryMock.Object, _mapper, _storageRepositoryMock.Object);
             var countBefore = (await _noteRepositoryMock.Object.GetAllAsync()).Count;
             var command = new CreateNoteCommand()
             {
@@ -81,7 +82,7 @@ namespace NoteIt.Application.Functions.Notes.Commands.CreateNote.Tests
                 Name = "Note100",
                 Content = "Content100",
                 IsImportant = false,
-                StorageId = Guid.NewGuid()
+                StorageAddress = "storage1"
             };
 
             // Act
