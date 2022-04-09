@@ -15,7 +15,9 @@ namespace NoteIt.Application.Functions.Storages.Commands.CreateStorage
                 .MaximumLength(64)
                 .WithMessage("{PropertyName} must not exceed 64 characters")
                 .Matches(@"^[a-zA-Z0-9\s]+$")
-                .WithMessage("{PropertyName} must contain only letters and numbers");
+                .WithMessage("{PropertyName} must contain only letters and numbers")
+                .NotEqual("Storages")
+                .WithMessage("This name is not allowed");
 
             RuleFor(x => x.Password)
                 .NotEmpty()
